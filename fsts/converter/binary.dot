@@ -1,0 +1,15 @@
+digraph FST {
+rankdir = LR;
+size = "8.5,11";
+label = "";
+center = 1;
+orientation = Landscape;
+ranksep = "0.4";
+nodesep = "0.25";
+0 [label = "0", shape = circle, style = bold, fontsize = 14]
+	0 -> 0 [label = "c:c", fontsize = 14];
+	0 -> 0 [label = "b:f/1", fontsize = 14];
+	0 -> 0 [label = "e:y/1", fontsize = 14];
+	0 -> 0 [label = "<epsilon>:d/1", fontsize = 14];
+	0 -> 0 [label = "p:<epsilon>/1", fontsize = 14];
+}

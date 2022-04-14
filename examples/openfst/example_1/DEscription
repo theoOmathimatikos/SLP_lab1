@@ -1,0 +1,8 @@
+Description of the task:
+
+   1. Starting from an input file valid_words.txt with some words ('mars', 'Martian', 'man'), a python script creates for each of those words a corresponding txt file with the transitions for a FSA to
+   accept this word. T
+   
+   2. Then, each of those files is converted to a binfst file.
+   
+   3. The full_punct txt file contains the transitions for a FSA to accept all symbols.  
