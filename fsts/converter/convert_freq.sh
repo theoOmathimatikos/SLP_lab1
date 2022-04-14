@@ -1,0 +1,1 @@
+fstcompile --keep_isymbols --keep_osymbols --isymbols=chars.syms --osymbols=chars.syms E.fst E_transducer.binfst

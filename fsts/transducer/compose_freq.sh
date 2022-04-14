@@ -1,0 +1,1 @@
+fstcompose E_transducer.binfst V_min_sorted.fst  EV.binfst

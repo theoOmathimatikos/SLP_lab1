@@ -20,6 +20,9 @@ def calculate_arc_weight(frequency):
     return -math.log(frequency)
 
 
+
+    # ** To pipeline gia na spaei thn leksh kai na to petaei se arxeio k na to kanei compile. 
+
 def format_arc(src, dst, ilabel, olabel, weight=0):
     """Create an Arc, i.e. a line of an openfst text format file
 

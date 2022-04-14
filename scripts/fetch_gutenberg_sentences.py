@@ -124,7 +124,7 @@ if __name__ == "__main__":
     preprocessed = process_file(raw_corpus, preprocess=preprocess)
     
     cwdir = os.getcwd()
-    write_dir = cwdir.rsplit("/", 1)[0] + "/data/preprocessed_sentences.txt"
+    write_dir = cwdir.rsplit("/", 1)[0] + "/" + "data/preprocessed_sentences.txt"
     f = open(write_dir, "a")	
     for sentence in preprocessed:
         if sentence[0] in ["volume", "chapter"] and len(sentence) < 5:

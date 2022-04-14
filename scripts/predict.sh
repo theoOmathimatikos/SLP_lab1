@@ -18,7 +18,7 @@ CURRENT_DIRECTORY=$(dirname $0)
 ###
 # Make sure these files exist
 CHARSYMS=./chars.syms
-WORDSYMS=./words.syms
+WORDSYMS=./word.syms
 ###
 
 # Make input fst for the misspelled word
@@ -38,6 +38,6 @@ python mkfstinput.py ${WORD} |   # pairnei leksh thn pernaei apodoxea
     # Ignore epsilon outputs
     grep -v "<epsilon>" |
     # Ignore accepting state line
-    head -n -1 |    # pare thn pio fthnh. 
+    head -n 1 |    # pare thn pio fthnh. 
     # Remove trailing new line
     tr -d '\n'

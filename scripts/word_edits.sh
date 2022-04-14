@@ -17,19 +17,18 @@ CURRENT_DIRECTORY=$(dirname $0)
 
 ###
 # Make sure to create these files
-CHARSSYMS=${CURRENT_DIRECTORY}/../syms/chars.syms  # Character symbol table
-VANILLA_LEVENSHTEIN=${CURRENT_DIRECTORY}/../fsts/L.binfst  # Compile basic Levenshtein FST
+CHARSSYMS=./chars.syms  # Character symbol table
+VANILLA_LEVENSHTEIN=./L_transducer.binfst  # Compile basic Levenshtein FST
 ###
 
 # Temp fst file. Is deleted after the script runs
-MLFST=${CURRENT_DIRECTORY}/../fsts/ML.binfst
+MLFST=./ML.binfst
 
 
 # Compose M with L to create  ML.fst
 python mkfstinput.py ${WRONG} |   # pairnoume thn leksh
     fstcompile --isymbols=${CHARSSYMS} --osymbols=${CHARSSYMS} |  # thn kanoume compile --> binary fst.formal
-    fstcompose - ${VANILLA_LEVENSHTEIN} > ${MLFST}  # grapse mou se auto to arxeio. To MLFST upotithetai oti to exoyme dwsei san arxeio. 
-
+    fstcompose - ${VANILLA_LEVENSHTEIN}  > ${MLFST}  # grapse mou se auto to arxeio. To MLFST upotithetai oti to exoyme dwsei san arxeio. 
 
 # Create N.fst and compose ML.fst with N.fst to create MLN.fst
 python mkfstinput.py ${CORRECT} |

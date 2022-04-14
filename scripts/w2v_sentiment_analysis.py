@@ -111,21 +111,13 @@ def nbow_value(nbow, load, exclude_zeros=False):
         
 
 def extract_nbow(corpus, load_simple=True, exclude_zeros=False):
-    """Extract neural bag of words representations. We load the model and then tokenize each text and try to find 
-    the representation of each word. If the word exists in the corpus, the model.wv[word] will return its representation.
-    Otherwise, the method will raise an error. We handle this error by adding a zero vector with the same length as the
-    representations of the model we loaded. We then call the nbow_value method which calculates for each sentence the
-    mean value of the representations."""
-    
-    # load model
+    """Extract neural bag of words representations. For each text, we tok"""
     if load_simple:
         model = load_model()
         n = 100
     else:
         model = load_pretrained_model()
         n = 300
-        
-    # find the representations for each word of a text, for all texts
     nbow = []
     for text in corpus:
         rep = []
@@ -135,11 +127,10 @@ def extract_nbow(corpus, load_simple=True, exclude_zeros=False):
             except:
                 rep.append(np.zeros(n))
         nbow.append(rep)
-        
-    # calculate the mean value for the word representations of each sentence.
     estim = nbow_value(nbow, load_simple, exclude_zeros)
+    estim = np.array(estim)
 
-    return np.array(estim)
+    return estim
     
 
 def train_sentiment_analysis(train_corpus, train_labels):

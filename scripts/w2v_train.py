@@ -69,16 +69,14 @@ def train_w2v_model(
 
 
 def load_model(output_file):
-    """This function loads the pretrained and saved model from the models folder. It will then call the model_stats
-    function and return its results. """
+    """This function loads the pretrained and saved model from the models folder. It will then call the model_stats function and return its results. """
     # load the model
     model = Word2Vec.load(output_file)
     return model_stats(model)
 
 
 def load_pretrained_model():
-    """This function loads a pretrained model from google and thens call the model_stats function, returns
-    its results. """
+    """This function loads a pretrained model from google and thens call the model_stats function, returns its results. """
     
     # Read the data
     read_dir = os.getcwd().rsplit("/", 1)[0] + "/" 'data/GoogleNews-vectors-negative300.bin'
@@ -88,11 +86,8 @@ def load_pretrained_model():
 
 
 def model_stats(model):
-    """This function takes as an input a Word2Vec model and makes some predictions about the most similar words of a
-    particular word, or finds semantic analogies of some triplets of words. It then prints the results. With this
-    function we can estimate the accuracy of our model, and this, we could say that we run some statistical tests for
-    it, thus its name model_stats."""
-
+    """This function takes as an input a Word2Vec model and makes some predictions about the most similar words of a particular word, or finds semantic analogies of some triplets of words. 
+    IT then prints the results. With this function we can estimate the accuracy of our model, and this, we could say that we run some statistical tests for it, thus its name model_stats."""
     words_check = ["bible", "book", "bank", "water"]
     for word in words_check:
         print("For the word ", word, " the most similar words that the model produced are:\n", model.wv.most_similar(word))
